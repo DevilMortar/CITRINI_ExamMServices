@@ -45,11 +45,8 @@ d) To set requests and limits for my deployment, I used this command :
 kubectl set resources deployment webapp --requests=cpu=200m,memory=512Mi --limits=cpu=500m,memory=1Gi
 ```
 
-e) To set liveness and rediness probes, I used this command :
-```bash
-kubectl set probe deployment webapp --liveness --initial-delay-seconds=30 --timeout-seconds=5 -- echo ok
-kubectl set probe deployment webapp --readiness --initial-delay-seconds=30 --timeout-seconds=5 --get-url=http://:8080/
-```
+e) Set Liveness and Readiness probes for your deployment : (--initial-delay-seconds doesn't work with minikube)
+???
 
 ## Part 2: Questions
 
