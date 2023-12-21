@@ -23,7 +23,10 @@ This is the Docker Hub repo :
 https://hub.docker.com/repository/docker/devilmortar/simple-nodejs-webapp/general
 
 ### Kubernetes
-A ) To deploy the Dockerized web application, I used minikube. I typed these commands :
+A ) To deploy the Dockerized web application, I used minikube. **I didn't use yaml files**.
+I used the ***kubectl*** command line tool. It worked well.
+
+I typed these commands :
 ```bash
 minikube start
 kubectl create deployment webapp --image=devilmortar/simple-nodejs-webapp:latest
