@@ -45,8 +45,7 @@ d) To set requests and limits for my deployment, I used this command :
 kubectl set resources deployment webapp --requests=cpu=200m,memory=512Mi --limits=cpu=500m,memory=1Gi
 ```
 
-e) Set Liveness and Readiness probes for your deployment : (--initial-delay-seconds doesn't work with minikube)
-???
+e) ???
 
 ## Part 2: Questions
 
