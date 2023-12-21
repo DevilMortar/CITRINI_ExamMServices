@@ -5,6 +5,7 @@ CITRINI Mathias (devilmortar)
 
 ### Docker and Containers
 A) You can find the Dockerfile in the project folder.
+
 B) These are the command to type :
 ```bash
 docker build -t simple-nodejs-webapp .
