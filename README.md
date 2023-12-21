@@ -1,5 +1,56 @@
 # Exam MicroServices
-CITRINI Mathias
+CITRINI Mathias (devilmortar)
+
+## Part 1: Docker
+
+### Docker and Containers
+A) You can find the Dockerfile in the project folder.
+B) These are the command to type :
+```bash
+docker build -t simple-nodejs-webapp .
+docker run -d -p 8080:8080 --name simple-nodejs-webapp simple-nodejs-webapp
+```
+C) Before pushing the image, i had to create a gpg key.
+After, to push the image to Docker Hub, I typed these commands :
+```bash
+docker login -u devilmortar -p <password> # I don't want to show my password
+docker tag simple-nodejs-webapp devilmortar/simple-nodejs-webapp:0.0.1
+docker push devilmortar/simple-nodejs-webapp:0.0.1
+```
+
+This is the Docker Hub repo :
+https://hub.docker.com/repository/docker/devilmortar/simple-nodejs-webapp/general
+
+### Kubernetes
+A ) To deploy the Dockerized web application, I used minikube. I typed these commands :
+```bash
+minikube start
+kubectl create deployment webapp --image=devilmortar/simple-nodejs-webapp:latest
+kubectl expose deployment webapp --type=NodePort --port=8080
+```
+
+B) Make your application accessible from outside the Kubernetes cluster
+```bash
+minikube service webapp
+```
+
+C) To scale horizontally the application, I typed these commands :
+```bash
+kubectl scale deployment webapp --replicas=3
+```
+
+d) To set requests and limits for my deployment, I used this command :
+```bash
+kubectl set resources deployment webapp --requests=cpu=200m,memory=512Mi --limits=cpu=500m,memory=1Gi
+```
+
+e) To set liveness and rediness probes, I used this command :
+```bash
+kubectl set probe deployment webapp --liveness --initial-delay-seconds=30 --timeout-seconds=5 -- echo ok
+kubectl set probe deployment webapp --readiness --initial-delay-seconds=30 --timeout-seconds=5 --get-url=http://:8080/
+```
+
+## Part 2: Questions
 
 ### Question 1
 Microservices architecture is a way to develop software, where an application
