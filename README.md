@@ -126,7 +126,7 @@ It means that each request is independent from the others.
 It is important in microservices architecture because it makes the application easier to scale and add
 some fault tolerance.
 
-### Question 8 : What purposes does an API Gateway serve ?
+### Question 8 :
 
 An API Gateway is the unified entry point of the application. It is the only part that is accessible from the outside.
 It allows to hide the internal architecture of the application and handle the requests, authenticate the users,
